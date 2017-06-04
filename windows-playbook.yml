@@ -1,0 +1,7 @@
+---
+- hosts: "{{host}}"
+
+  tasks:
+  - name: Install xxx
+    win_chocolatey:
+      name: xyz

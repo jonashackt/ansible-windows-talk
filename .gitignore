@@ -1,0 +1,38 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse #
+.settings
+.project
+.classpath
+.studio
+target
+
+# Vagrant
+.vagrant
+
+# Apple # 
+.DS_Store
+
+# Intellij #
+.idea
+*.iml
+*.log
+
+# Ansible
+*.retry
+
+# logback
+logback.out.xml
+
+# zips
+*.tar.gz
+
+# Vagrantboxes
+*.box
+Vagrantfile
+*.ISO
