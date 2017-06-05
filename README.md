@@ -1,6 +1,19 @@
 # ansible-windows-talk
 Talk materials, links, snippets and a simple ansible playbook as showcase
 
+### Repositories needed throughout the talk
+
+https://github.com/jonashackt/ansible-windows-docker-springboot
+
+https://github.com/jonashackt/cxf-spring-cloud-netflix-docker
+
+### Links to dive in deeper
+
+https://blog.codecentric.de/en/2017/01/ansible-windows-spring-boot/
+
+https://blog.codecentric.de/en/2017/04/ansible-docker-windows-containers-spring-boot/
+
+https://blog.codecentric.de/en/2017/05/ansible-docker-windows-containers-scaling-spring-cloud-netflix-docker-compose/
 
 # Talk snippets
 
@@ -31,6 +44,9 @@ https://github.com/jonashackt/ansible-windows-docker-springboot#build-your-windo
 
 
 ### 2. Ansible provisions Windows
+
+cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple)
+
 ```
 ansible windows-dev -i hostsfile -m win_ping
 ```
@@ -42,5 +58,8 @@ ansible-playbook -i hostsfile windows-playbook.yml --extra-vars "host=windows-de
 
 ### 3. Prepare Docker on Windows
 ```
-docker run --name dotnetbot-container microsoft/dotnet-samples:dotnetapp-nanoserver
+docker run --name dotnetbot microsoft/dotnet-samples:dotnetapp-nanoserver
 ```
+
+[prepare-docker-windows.yml](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step1-prepare-docker-windows/prepare-docker-windows.yml)
+
