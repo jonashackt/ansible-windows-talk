@@ -88,7 +88,7 @@ java -jar weatherbackend-0.0.1-SNAPSHOT.jar
 cd into `step2-single-spring-boot-app` and run the playbook:
 
 ```
-ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev"
+ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev app_name=weatherbackend jar_input_path=../../cxf-spring-cloud-netflix-docker/weatherbackend/target/weatherbackend-0.0.1-SNAPSHOT.jar"
 ```
 
 
