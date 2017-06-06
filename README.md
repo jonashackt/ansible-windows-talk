@@ -15,6 +15,8 @@ https://blog.codecentric.de/en/2017/04/ansible-docker-windows-containers-spring-
 
 https://blog.codecentric.de/en/2017/05/ansible-docker-windows-containers-scaling-spring-cloud-netflix-docker-compose/
 
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
+
 # Talk snippets
 
 ### 1. Windows box
@@ -45,7 +47,7 @@ https://github.com/jonashackt/ansible-windows-docker-springboot#build-your-windo
 
 ### 2. Ansible provisions Windows
 
-cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple)
+cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple) and run the playbook:
 
 ```
 ansible windows-dev -i hostsfile -m win_ping
@@ -57,9 +59,39 @@ ansible-playbook -i hostsfile windows-playbook.yml --extra-vars "host=windows-de
 
 
 ### 3. Prepare Docker on Windows
+
+All the preparing playbooks can be found here: [step1-prepare-docker-windows](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step1-prepare-docker-windows/)
+
+```
+ansible-playbook -i hostsfile prepare-docker-windows.yml --extra-vars "host=ansible-windows-docker-springboot-dev"
+```
+
 ```
 docker run --name dotnetbot microsoft/dotnet-samples:dotnetapp-nanoserver
 ```
 
-[prepare-docker-windows.yml](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step1-prepare-docker-windows/prepare-docker-windows.yml)
+### 4. Run Spring Boot App on Docker Windows Container
+
+Clone simple Spring Boot app [weatherbackend](https://github.com/jonashackt/spring-cloud-netflix-docker/tree/master/weatherbackend) & do a:
+```
+mvn clean package
+```
+
+Then cd into weatherbackend/target
+
+```
+java -jar weatherbackend-0.0.1-SNAPSHOT.jar
+```
+
+
+
+cd into `step2-single-spring-boot-app` and run the playbook:
+
+```
+ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev"
+```
+
+
+
+
 
