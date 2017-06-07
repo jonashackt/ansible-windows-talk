@@ -19,6 +19,21 @@ https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
 
 # Talk snippets
 
+### Prerequisites
+
+install Virtual Box, Vagrant and Packer
+
+__if you´re on a Mac, this can easily be accomplished via brew:__
+* `brew cask install virtualbox` 
+* `brew cask install vagrant`
+* `brew install packer`
+
+__Windows:__
+* `choco install virtualbox`
+* `choco install vagrant`
+* `choco install packer` 
+
+
 ### 1. Windows box
 ```
 (Get-ItemProperty -Path c:\windows\system32\hal.dll).VersionInfo.FileVersion
@@ -83,13 +98,33 @@ Then cd into weatherbackend/target
 java -jar weatherbackend-0.0.1-SNAPSHOT.jar
 ```
 
-
-
-cd into `step2-single-spring-boot-app` and run the playbook:
+cd into [step2-single-spring-boot-app](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step2-single-spring-boot-app/) and run the playbook:
 
 ```
 ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev app_name=weatherbackend jar_input_path=../../cxf-spring-cloud-netflix-docker/weatherbackend/target/weatherbackend-0.0.1-SNAPSHOT.jar"
 ```
+
+### 5. Scale Spring Boot Apps
+
+Example project [cxf-spring-cloud-netflix-docker](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker)
+
+Spring Cloud docs: http://cloud.spring.io/spring-cloud-static/Dalston.RELEASE/
+
+###### Zuul dynamic routing
+
+zuul-edgeservice [application.yml](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/blob/master/zuul-edgeservice/src/main/resources/application.yml)
+
+###### Run playbook
+
+cd into [step3-multiple-spring-boot-apps-docker-compose](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step3-multiple-spring-boot-apps-docker-compose/)
+
+```
+ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev"
+```
+
+###### Healthcheck
+
+Spring Boot/Cloud [about well written clients](https://stackoverflow.com/a/42352258/4964553) 
 
 
 
