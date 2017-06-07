@@ -49,7 +49,7 @@ packer build -var iso_url=14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-
 
 Add the box and run it:
 ```
-vagrant init windows_2016_docker_virtualbox.box 
+vagrant init windows_2016_docker_virtualbox_talk.box 
 ```
 
 Now fire up your Windows Server 2016 box:
@@ -126,6 +126,18 @@ ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars
 
 Spring Boot/Cloud [about well written clients](https://stackoverflow.com/a/42352258/4964553) 
 
+
+###### Peer-awareness
+
+Eureka [application.yml](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/blob/master/eureka-serviceregistry/src/main/resources/application.yml)
+
+###### Run final weatherclient test
+
+cd into [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/tree/master/weatherclient) and run
+
+```
+java -jar target/weatherclient-0.0.1-SNAPSHOT.jar
+```
 
 
 
