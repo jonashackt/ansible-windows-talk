@@ -1,6 +1,8 @@
 # ansible-windows-talk
 Talk materials, links, snippets and a simple ansible playbook as showcase
 
+Link to the Slides: [Running Spring Boot Apps on Docker Windows Containers with Ansible.pdf](https://github.com/jonashackt/ansible-windows-talk/blob/master/Running%20Spring%20Boot%20Apps%20on%20Docker%20Windows%20Containers%20with%20Ansible.pdf)
+
 ### Repositories needed throughout the talk
 
 https://github.com/jonashackt/ansible-windows-docker-springboot
