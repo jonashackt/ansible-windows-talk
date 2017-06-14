@@ -2,6 +2,6 @@
 - hosts: "{{host}}"
 
   tasks:
-  - name: Install xxx
+  - name: Install firefox
     win_chocolatey:
-      name: xyz
+      name: firefox
