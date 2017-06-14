@@ -51,7 +51,7 @@ packer build -var iso_url=14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-
 
 Add the box and run it:
 ```
-vagrant init windows_2016_docker_virtualbox_talk.box 
+vagrant init windows_2016_docker_virtualbox.box 
 ```
 
 Now fire up your Windows Server 2016 box:
