@@ -21,35 +21,37 @@ https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
 
 # Talk snippets
 
-### Prerequisites
+## Prerequisites (1. Windows box)
 
-install Virtual Box, Vagrant and Packer
+> This is a step that requires to download ~10GB and takes quite long to complete - if you want to follow the demo live @ the talk, you should prepare the hole step at home.
 
-__if you´re on a Mac, this can easily be accomplished via brew:__
+#### a) install Virtual Box, Vagrant and Packer
+
+###### if you´re on a Mac, this can easily be accomplished via [brew](https://brew.sh/index_de.html)
 * `brew cask install virtualbox` 
 * `brew cask install vagrant`
 * `brew install packer`
 
-__Windows:__
+###### on Windows, take [chocolatey](https://chocolatey.org/)
 * `choco install virtualbox`
 * `choco install vagrant`
 * `choco install packer` 
 
+###### on Linux - just use your favourite package manager
 
-### 1. Windows box
-```
-(Get-ItemProperty -Path c:\windows\system32\hal.dll).VersionInfo.FileVersion
-```
+#### b) Download ISO
 
-ISO: https://www.microsoft.com/de-de/evalcenter/evaluate-windows-server-2016
+https://www.microsoft.com/de-de/evalcenter/evaluate-windows-server-2016 (registration needed)
 
-Packer configuration json, Vagrant template: https://github.com/jonashackt/ansible-windows-docker-springboot/tree/master/step0-packer-windows-vagrantbox
+#### c) Build your Vagrant Box with Packer
+
+Clone this GitHub repo [ansible-windows-docker-springboot](https://github.com/jonashackt/ansible-windows-docker-springboot), cd into it and the subfolder `step0-packer-windows-vagrantbox`. Then run:
 
 ```
 packer build -var iso_url=14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO -var iso_checksum=70721288bbcdfe3239d8f8c0fae55f1f windows_server_2016_docker.json
 ```
 
-Add the box and run it:
+#### d) Add the Vagrant box and run it
 ```
 vagrant init windows_2016_docker_virtualbox.box 
 ```
@@ -59,23 +61,27 @@ Now fire up your Windows Server 2016 box:
 vagrant up
 ```
 
-https://github.com/jonashackt/ansible-windows-docker-springboot#build-your-windows-server-2016-vagrant-box
+> You can check if everything is ok as a last step if you cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple) and run a `ansible windows-dev -i hostsfile -m win_ping` - which should give an `SUCCESS` 
+
+Find more info here: https://github.com/jonashackt/ansible-windows-docker-springboot#build-your-windows-server-2016-vagrant-box
 
 
-### 2. Ansible provisions Windows
+## 2. Ansible provisions Windows
 
-cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple) and run the playbook:
+cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple) and test the connection first:
 
 ```
 ansible windows-dev -i hostsfile -m win_ping
 ```
+
+Then run the playbook:
 
 ```
 ansible-playbook -i hostsfile windows-playbook.yml --extra-vars "host=windows-dev"
 ```
 
 
-### 3. Prepare Docker on Windows
+## 3. Prepare Docker on Windows
 
 All the preparing playbooks can be found here: [step1-prepare-docker-windows](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step1-prepare-docker-windows/)
 
@@ -87,7 +93,7 @@ ansible-playbook -i hostsfile prepare-docker-windows.yml --extra-vars "host=ansi
 docker run --name dotnetbot microsoft/dotnet-samples:dotnetapp-nanoserver
 ```
 
-### 4. Run Spring Boot App on Docker Windows Container
+## 4. Run Spring Boot App on Docker Windows Container
 
 Clone simple Spring Boot app [weatherbackend](https://github.com/jonashackt/spring-cloud-netflix-docker/tree/master/weatherbackend) & do a:
 ```
@@ -106,7 +112,7 @@ cd into [step2-single-spring-boot-app](https://github.com/jonashackt/ansible-win
 ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev app_name=weatherbackend jar_input_path=../../cxf-spring-cloud-netflix-docker/weatherbackend/target/weatherbackend-0.0.1-SNAPSHOT.jar"
 ```
 
-### 5. Scale Spring Boot Apps
+## 5. Scale Spring Boot Apps
 
 Example project [cxf-spring-cloud-netflix-docker](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker)
 
