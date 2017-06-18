@@ -118,6 +118,8 @@ ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars
 
 #### Inside the Vagrant Windows box:
 
+###### Check running webserver inside container
+
 Show running Docker containers:
 
 ```
@@ -130,6 +132,25 @@ Show logs of running container:
 docker logs simpleapp_weatherbackend
 ```
 
+Connect into running container with Powershell:
+
+```
+docker exec -it simpleapp_weatherbackend powershell
+```
+
+Show some environment variables:
+
+```
+Get-ChildItem Env:
+```
+
+Call webserver:
+```
+iwr http://localhost:8090/swagger-ui.html -UseBasicParsing
+```
+
+###### Call webserver from Windows Docker Host:
+
 Find container´s IP:
 
 ```
@@ -138,11 +159,7 @@ docker network inspect nat
 
 Go to [containerIP:8088/swagger-ui.html](http://containerIP:8088/swagger-ui.html) and try it out again!
 
-Connect into running container with Powershell:
 
-```
-docker exec -it simpleapp_weatherbackend powershell
-```
 
 ## 5. Scale Spring Boot Apps
 
