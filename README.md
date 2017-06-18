@@ -179,6 +179,16 @@ cd into [step3-multiple-spring-boot-apps-docker-compose](https://github.com/jona
 ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev"
 ```
 
+Show running Docker containers:
+
+```
+docker ps -a 
+```
+
+Open Eureka dashboard:
+
+Look for eureka-serviceregistry Container´s IP and go to [eurekaIP:8761](http://eurekaIP:8761)
+
 ###### Healthcheck
 
 Spring Boot/Cloud [about well written clients](https://stackoverflow.com/a/42352258/4964553) 
@@ -196,6 +206,17 @@ cd into [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-d
 java -jar target/weatherclient-0.0.1-SNAPSHOT.jar
 ```
 
+Inside the Vagrant Windows Box: Open 3 Powershells and connect to the logs:
+
+```
+docker logs springboot_zuul-edgeservice_1 --follow
+docker logs springboot_weatherservice_1 --follow
+docker logs springboot_weatherbackend_1 --follow
+```
+
+On your Computer:
+
+Go to [localhost:8087/swagger-ui.html](http://localhost:8087/swagger-ui.html) and do a __GET__ on `/forecast/{zip}`
 
 
 
