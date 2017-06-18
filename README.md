@@ -108,10 +108,40 @@ Then cd into weatherbackend/target
 java -jar weatherbackend-0.0.1-SNAPSHOT.jar
 ```
 
+Go to [localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html) and do a __GET__ onto __weather-backend-controller__ `/weather/{name}`
+
 cd into [step2-single-spring-boot-app](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step2-single-spring-boot-app/) and run the playbook:
 
 ```
 ansible-playbook -i hostsfile ansible-windows-docker-springboot.yml --extra-vars "host=ansible-windows-docker-springboot-dev app_name=weatherbackend jar_input_path=../../cxf-spring-cloud-netflix-docker/weatherbackend/target/weatherbackend-0.0.1-SNAPSHOT.jar"
+```
+
+#### Inside the Vagrant Windows box:
+
+Show running Docker containers:
+
+```
+docker ps -a 
+```
+
+Show logs of running container:
+
+```
+docker logs simpleapp_weatherbackend
+```
+
+Find container´s IP:
+
+```
+docker network inspect nat
+```
+
+Go to [containerIP:8088/swagger-ui.html](http://containerIP:8088/swagger-ui.html) and try it out again!
+
+Connect into running container with Powershell:
+
+```
+docker exec -it simpleapp_weatherbackend powershell
 ```
 
 ## 5. Scale Spring Boot Apps
