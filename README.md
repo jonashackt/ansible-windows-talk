@@ -31,11 +31,13 @@ https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
 * `brew cask install virtualbox` 
 * `brew cask install vagrant`
 * `brew install packer`
+* (Java part only) `brew install maven`
 
 ###### on Windows, take [chocolatey](https://chocolatey.org/)
 * `choco install virtualbox`
 * `choco install vagrant`
-* `choco install packer` 
+* `choco install packer`
+* (Java part only) `choco install maven` 
 
 ###### on Linux - just use your favourite package manager
 
@@ -83,7 +85,7 @@ ansible-playbook -i hostsfile windows-playbook.yml --extra-vars "host=windows-de
 
 ## 3. Prepare Docker on Windows
 
-All the preparing playbooks can be found here: [step1-prepare-docker-windows](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step1-prepare-docker-windows/)
+cd into [step1-prepare-docker-windows](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step1-prepare-docker-windows/)
 
 ```
 ansible-playbook -i hostsfile prepare-docker-windows.yml --extra-vars "host=ansible-windows-docker-springboot-dev"
@@ -95,7 +97,7 @@ docker run --name dotnetbot microsoft/dotnet-samples:dotnetapp-nanoserver
 
 ## 4. Run Spring Boot App on Docker Windows Container
 
-Clone simple Spring Boot app [weatherbackend](https://github.com/jonashackt/spring-cloud-netflix-docker/tree/master/weatherbackend) & do a:
+Clone example application´s repository [cxf-spring-cloud-netflix-docker](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker), cd into [weatherbackend](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/tree/master/weatherbackend) & do a:
 ```
 mvn clean package
 ```
