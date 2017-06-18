@@ -61,14 +61,14 @@ Now fire up your Windows Server 2016 box:
 vagrant up
 ```
 
-> You can check if everything is ok as a last step if you cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple) and run a `ansible windows-dev -i hostsfile -m win_ping` - which should give an `SUCCESS` 
+> You can check if everything is ok as a last step if you cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-docker-springboot/tree/master/step0-packer-windows-vagrantbox/ansible-windows-simple) and run a `ansible windows-dev -i hostsfile -m win_ping` - which should give an `SUCCESS` 
 
 Find more info here: https://github.com/jonashackt/ansible-windows-docker-springboot#build-your-windows-server-2016-vagrant-box
 
 
 ## 2. Ansible provisions Windows
 
-cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-talk/tree/master/ansible-windows-simple) and test the connection first:
+cd into [ansible-windows-simple](https://github.com/jonashackt/ansible-windows-docker-springboot/tree/master/step0-packer-windows-vagrantbox/ansible-windows-simple) and test the connection first:
 
 ```
 ansible windows-dev -i hostsfile -m win_ping
