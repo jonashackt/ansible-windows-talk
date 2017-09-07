@@ -165,13 +165,9 @@ Go to [containerIP:8088/swagger-ui.html](http://containerIP:8088/swagger-ui.html
 
 Example project [cxf-spring-cloud-netflix-docker](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker)
 
-Spring Cloud docs: http://cloud.spring.io/spring-cloud-static/Dalston.RELEASE/
+More info on this blog post https://blog.codecentric.de/en/2017/05/ansible-docker-windows-containers-scaling-spring-cloud-netflix-docker-compose/
 
-###### Zuul dynamic routing
-
-zuul-edgeservice [application.yml](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/blob/master/zuul-edgeservice/src/main/resources/application.yml)
-
-###### Run playbook
+#### Run playbook
 
 cd into [step3-multiple-spring-boot-apps-docker-compose](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step3-multiple-spring-boot-apps-docker-compose/)
 
@@ -185,20 +181,23 @@ Show running Docker containers:
 docker ps -a 
 ```
 
-Open Eureka dashboard:
+#### Eureka - Service Registry
 
-Look for eureka-serviceregistry Container´s IP and go to [eurekaIP:8761](http://eurekaIP:8761)
+Look for eureka-serviceregistry Container´s IP
 
-###### Healthcheck
+```
+docker network inspect nat
+```
 
-Spring Boot/Cloud [about well written clients](https://stackoverflow.com/a/42352258/4964553) 
+and go to [eurekaIP:8761](http://eurekaIP:8761)
 
 
-###### Peer-awareness
+#### Zuul - Dynamic Proxy & Routing
 
-Eureka [application.yml](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/blob/master/eureka-serviceregistry/src/main/resources/application.yml)
+Go to http://localhost:48080/routes on your VirtualBox Host machine
 
-###### Run final weatherclient test
+
+#### Testing the complete route - with the weatherclient app
 
 cd into [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/tree/master/weatherclient) and run
 
@@ -206,10 +205,9 @@ cd into [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-d
 java -jar target/weatherclient-0.0.1-SNAPSHOT.jar
 ```
 
-Inside the Vagrant Windows Box: Open 3 Powershells and connect to the logs:
+Inside the Vagrant Windows Box: Open 2 Powershells and connect to the logs:
 
 ```
-docker logs springboot_zuul-edgeservice_1 --follow
 docker logs springboot_weatherservice_1 --follow
 docker logs springboot_weatherbackend_1 --follow
 ```
