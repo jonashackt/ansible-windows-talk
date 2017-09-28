@@ -17,6 +17,10 @@ https://blog.codecentric.de/en/2017/04/ansible-docker-windows-containers-spring-
 
 https://blog.codecentric.de/en/2017/05/ansible-docker-windows-containers-scaling-spring-cloud-netflix-docker-compose/
 
+https://www.heise.de/developer/artikel/Docker-Windows-Container-mit-Ansible-managen-1-2-3824736.html
+
+https://www.heise.de/developer/artikel/Docker-Windows-Container-mit-Ansible-managen-2-2-3838642.html
+
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
 
 # Talk snippets
