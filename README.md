@@ -54,7 +54,7 @@ https://www.microsoft.com/de-de/evalcenter/evaluate-windows-server-2016 (registr
 Clone this GitHub repo [ansible-windows-docker-springboot](https://github.com/jonashackt/ansible-windows-docker-springboot), cd into it and the subfolder `step0-packer-windows-vagrantbox`. Then run:
 
 ```
-packer build -var iso_url=14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO -var iso_checksum=70721288bbcdfe3239d8f8c0fae55f1f windows_server_2016_docker.json
+packer build -var iso_url=14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO -var iso_checksum=70721288bbcdfe3239d8f8c0fae55f1f -var box_output_prefix=windows_2016_docker_no_wifi windows_server_2016_docker.json
 ```
 
 #### d) Add the Vagrant box and run it
