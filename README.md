@@ -23,6 +23,8 @@ https://www.heise.de/developer/artikel/Docker-Windows-Container-mit-Ansible-mana
 
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
 
+https://blog.codecentric.de/en/2017/09/taming-hybrid-swarm-init-mixed-os-docker-swarm-vagrant-ansible/
+
 # Talk snippets
 
 ## Prerequisites (1. Windows box)
