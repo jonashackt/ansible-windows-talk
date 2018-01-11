@@ -203,6 +203,15 @@ and go to [eurekaIP:8761](http://eurekaIP:8761)
 Go to http://localhost:48080/routes on your VirtualBox Host machine
 
 
+#### Scaling
+
+Inside the Vagrant Box, on Powershell cd into `c:\springboot` and run:
+
+```
+docker-compose scale weatherbackend=3
+```
+
+
 #### Testing the complete route - with the weatherclient app
 
 cd into [weatherclient](https://github.com/jonashackt/cxf-spring-cloud-netflix-docker/tree/master/weatherclient) and run
