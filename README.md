@@ -232,4 +232,36 @@ On your Computer:
 Go to [localhost:8087/swagger-ui.html](http://localhost:8087/swagger-ui.html) and do a __GET__ on `/forecast/{zip}`
 
 
+## X. One more thing...
+
+#### Prepare:
+
+cd into [step4-windows-linux-multimachine-vagrant-docker-swarm-setup](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step4-windows-linux-multimachine-vagrant-docker-swarm-setup/) and run
+
+```
+ansible-playbook -i hostsfile prepare-docker-nodes.yml
+
+ansible-playbook -i hostsfile initialize-docker-swarm.yml
+```
+
+Have a look into Portainer UI on your Vagrant host:
+
+http://localhost:49000/
+
+
+#### Deploy Apps:
+
+cd into [step5-deploy-multiple-spring-boot-apps-to-mixed-os-docker-swarm](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step5-deploy-multiple-spring-boot-apps-to-mixed-os-docker-swarm/) and run
+
+```
+ansible-playbook -i hostsfile build-and-deploy-apps-2-swarm.yml
+```
+
+Now have a look into the Traefik UI:
+
+```
+http://localhost:48080/dashboard/
+```
+
+
 
