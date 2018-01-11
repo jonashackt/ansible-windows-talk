@@ -259,9 +259,17 @@ ansible-playbook -i hostsfile build-and-deploy-apps-2-swarm.yml
 
 Now have a look into the Traefik UI:
 
-```
 http://localhost:48080/dashboard/
-```
+
+All the services should be available through Docker Swarm routing mesh / ingress networking - on your Vagrant host:
+
+__weatherbackend__: http://localhost:8090/swagger-ui.html
+
+__weatherservice__: http://localhost:8095/soap
+
+__Eureka__: http://localhost:8761/
+
+__Spring Boot Admin__: http://localhost:8092/
 
 
 
