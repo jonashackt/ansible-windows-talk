@@ -25,6 +25,10 @@ https://docs.microsoft.com/en-us/virtualization/windowscontainers/index
 
 https://blog.codecentric.de/en/2017/09/taming-hybrid-swarm-init-mixed-os-docker-swarm-vagrant-ansible/
 
+https://www.heise.de/developer/artikel/Die-hybride-Cloud-mit-Docker-Swarm-und-Ansible-Teil-1-3894131.html
+
+https://www.heise.de/developer/artikel/Die-hybride-Cloud-mit-Docker-Swarm-und-Ansible-2-2-3929312.html
+
 # Talk snippets
 
 ## Prerequisites (1. Windows box)
