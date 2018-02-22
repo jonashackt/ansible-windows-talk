@@ -243,6 +243,8 @@ Go to [localhost:8087/swagger-ui.html](http://localhost:8087/swagger-ui.html) an
 cd into [step4-windows-linux-multimachine-vagrant-docker-swarm-setup](https://github.com/jonashackt/ansible-windows-docker-springboot/blob/master/step4-windows-linux-multimachine-vagrant-docker-swarm-setup/) and run
 
 ```
+vagrant up
+
 ansible-playbook -i hostsfile prepare-docker-nodes.yml
 
 ansible-playbook -i hostsfile initialize-docker-swarm.yml
